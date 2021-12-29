@@ -10,10 +10,16 @@ import { ProfessionalPage } from '../pages/professional/professional';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { EsqueciSenhaPage } from '../pages/esqueci-senha/esqueci-senha';
 
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
+    RegisterPage,
+    EsqueciSenhaPage,
     HomePage,
     ListPage,
     ProfilePage,
@@ -26,6 +32,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
+    RegisterPage,
+    EsqueciSenhaPage,
     HomePage,
     ListPage,
     ProfilePage,
