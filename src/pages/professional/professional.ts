@@ -8,7 +8,8 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ProfessionalPage {
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  //criar model
+  items: Array<{title: string, note: string, icon: string, number: string, address: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
@@ -18,14 +19,24 @@ export class ProfessionalPage {
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+    this.items = [
+      {
+        icon: 'person',
+        title: 'Medico 1',
+        note: 'esse é o medico 1',
+        number: '(85)99178-7430',
+        address: 'Av Treze de Maio 1998'
+      },
+      {
+        icon: 'person',
+        title: 'Medico 2',
+        note: 'esse é o medico 2',
+        number: '(85)99178-7430',
+        address: 'Av Treze de Maio 1998'
+      },
+
+    ];
+
   }
 
   itemTapped(event, item) {

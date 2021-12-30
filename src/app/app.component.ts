@@ -27,7 +27,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Perfil', component: ProfilePage },
       { title: 'Cadastro de Médico', component: ProfessionalPage },
-      { title: 'Sair', component: ListPage }
+      { title: 'Sair', component: LoginPage }
     ];
 
   }
