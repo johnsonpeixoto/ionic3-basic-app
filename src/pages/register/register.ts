@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -14,8 +16,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
+  email: string;
+  password: string;
+  nome: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public firebaseauth: AngularFireAuth,
+    public firebaseDatabase: AngularFireDatabase) {
   }
 
   ionViewDidLoad() {
@@ -23,6 +31,21 @@ export class RegisterPage {
   }
 
   register(){
+    this.firebaseauth.auth.createUserWithEmailAndPassword(this.email , this.password)
+      .then((data) => {
+        console.log(data.uid)
+        this.registraDadosPessoais(data.uid)
+      })
+      .catch((erro: any) => {
+        console.log('erro')
+      });
+  }
+
+  registraDadosPessoais(uid){
+    this.firebaseDatabase.list('/usuario').push({UID: uid, nome: this.nome})
+      .then((data) => {
+        console.log(data)
+      });
 
   }
 
