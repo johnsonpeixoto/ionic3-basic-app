@@ -7,36 +7,26 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProfessionalPage {
   selectedItem: any;
+  profs: string[];
+  specialties: string[];
   icons: string[];
-  //criar model
-  items: Array<{title: string, note: string, icon: string, number: string, address: string}>;
+  items: Array<{name: string, specialty: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
+    alert(JSON.stringify(this.selectedItem));
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+    this.profs = ['João', 'Beatriz'];
+    this.specialties = ['Geral', 'Pediatria'];
 
-    this.items = [
-      {
-        icon: 'person',
-        title: 'Medico 1',
-        note: 'esse é o medico 1',
-        number: '(85)99178-7430',
-        address: 'Av Treze de Maio 1998'
-      },
-      {
-        icon: 'person',
-        title: 'Medico 2',
-        note: 'esse é o medico 2',
-        number: '(85)99178-7430',
-        address: 'Av Treze de Maio 1998'
-      },
-
-    ];
-
+    this.items = [];
+    for (let i = 0; i < 2; i++) {
+      this.items.push({
+        name: this.profs[i],
+        specialty: this.specialties[i]
+      });
+    }
   }
 
   itemTapped(event, item) {

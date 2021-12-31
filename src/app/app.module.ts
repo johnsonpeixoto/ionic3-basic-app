@@ -12,7 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
-import { EsqueciSenhaPage } from '../pages/esqueci-senha/esqueci-senha';
+import { EsqueciSenhaPage } from '../pages/recovery/esqueci-senha';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';

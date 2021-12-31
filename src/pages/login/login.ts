@@ -3,7 +3,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Nav } from 'ionic-angular';
-import { EsqueciSenhaPage } from '../esqueci-senha/esqueci-senha';
+import { EsqueciSenhaPage } from '../recovery/esqueci-senha';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 
@@ -29,10 +29,6 @@ export class LoginPage {
     public firebaseDatabase: AngularFireDatabaseModule) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
   login(){
     console.log(this.email);
     console.log(this.password);
@@ -42,7 +38,7 @@ export class LoginPage {
         this.navCtrl.setRoot(HomePage, {}, {animate: true, direction: "forward"});
       })
       .catch((erro: any) => {
-        console.log('erro')
+        alert('E-mail/Senha incorretos')
       });
   }
 
