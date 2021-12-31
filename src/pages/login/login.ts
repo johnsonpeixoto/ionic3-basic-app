@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Nav } from 'ionic-angular';
 import { EsqueciSenhaPage } from '../esqueci-senha/esqueci-senha';
@@ -19,8 +20,9 @@ import { RegisterPage } from '../register/register';
 })
 export class LoginPage {
   @ViewChild(Nav) nav: Nav;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public firebaseauth: AngularFireAuth) {
   }
 
   ionViewDidLoad() {
@@ -28,7 +30,15 @@ export class LoginPage {
   }
 
   login(){
-    this.navCtrl.setRoot(HomePage, {}, {animate: true, direction: "forward"});
+    console.log(this.email);
+    console.log(this.password);
+    this.firebaseauth.auth.signInWithEmailAndPassword(this.email , this.password)
+      .then(() => {
+        this.navCtrl.setRoot(HomePage, {}, {animate: true, direction: "forward"});
+      })
+      .catch((erro: any) => {
+        console.log('erro')
+      });
   }
 
   register(){
